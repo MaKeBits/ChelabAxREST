@@ -10,6 +10,8 @@ namespace Chelab.AxREST.ServiceModel
     {
         public string SampleId { get; set; }
         public string ResultId { get; set; }
+        public string SampleRecId { get; set; }
+        public string ResultRecId { get; set; }
     }
 
     public class ResultResponse : IHasResponseStatus
