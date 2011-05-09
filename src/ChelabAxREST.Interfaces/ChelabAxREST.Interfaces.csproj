@@ -5,7 +5,7 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>cf546dbd-24b3-4d8c-b971-f828abe81f55</ProjectGuid>
+    <ProjectGuid>{A07DE9D8-59A4-43DC-90D5-A07D2F1B4F8D}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>ChelabAxREST.Interfaces</RootNamespace>
@@ -40,8 +40,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="ISampleRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Chelab.AxREST.ServiceModel\Chelab.AxREST.ServiceModel.csproj">
+      <Project>{C836D08B-633C-4593-9B81-AF999E72E4F7}</Project>
+      <Name>Chelab.AxREST.ServiceModel</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -1,7 +1,43 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChelabAxREST.Interfaces", "src\ChelabAxREST.Interfaces\ChelabAxREST.Interfaces.csproj", "{A07DE9D8-59A4-43DC-90D5-A07D2F1B4F8D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Chelab.AxREST.ServiceInterface", "src\Chelab.AxREST.ServiceInterface\Chelab.AxREST.ServiceInterface.csproj", "{0D781FE2-72F0-4320-9604-CBD5700C82A7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Chelab.AxREST.Logic", "src\Chelab.AxREST.Logic\Chelab.AxREST.Logic.csproj", "{D040A01C-FCEA-4BD8-94FC-1F98C3CDCBBC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Chelab.AxREST.ServiceModel", "src\Chelab.AxREST.ServiceModel\Chelab.AxREST.ServiceModel.csproj", "{C836D08B-633C-4593-9B81-AF999E72E4F7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChelabAxREST.Host", "src\ChelabAxREST.Host\ChelabAxREST.Host.csproj", "{A4690282-DCDD-4852-8001-D50DE6351F64}"
+EndProject
 Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A07DE9D8-59A4-43DC-90D5-A07D2F1B4F8D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A07DE9D8-59A4-43DC-90D5-A07D2F1B4F8D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A07DE9D8-59A4-43DC-90D5-A07D2F1B4F8D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A07DE9D8-59A4-43DC-90D5-A07D2F1B4F8D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0D781FE2-72F0-4320-9604-CBD5700C82A7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0D781FE2-72F0-4320-9604-CBD5700C82A7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0D781FE2-72F0-4320-9604-CBD5700C82A7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0D781FE2-72F0-4320-9604-CBD5700C82A7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D040A01C-FCEA-4BD8-94FC-1F98C3CDCBBC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D040A01C-FCEA-4BD8-94FC-1F98C3CDCBBC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D040A01C-FCEA-4BD8-94FC-1F98C3CDCBBC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D040A01C-FCEA-4BD8-94FC-1F98C3CDCBBC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C836D08B-633C-4593-9B81-AF999E72E4F7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C836D08B-633C-4593-9B81-AF999E72E4F7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C836D08B-633C-4593-9B81-AF999E72E4F7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C836D08B-633C-4593-9B81-AF999E72E4F7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A4690282-DCDD-4852-8001-D50DE6351F64}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A4690282-DCDD-4852-8001-D50DE6351F64}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A4690282-DCDD-4852-8001-D50DE6351F64}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A4690282-DCDD-4852-8001-D50DE6351F64}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
