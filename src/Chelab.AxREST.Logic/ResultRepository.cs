@@ -11,12 +11,16 @@ namespace Chelab.AxREST.Logic
     {
         public List<Result> getAllResults(string SampleId)
         {
-            throw new NotImplementedException();
+            return new List<Result> 
+            { 
+                new Result { SampleId = "123", ResultId = "456" },
+                new Result { SampleId = "789", ResultId = "012" } 
+            };
         }
 
         public Result getResult(string SampleId, string ResultId, int RsltRepetition)
         {
-            throw new NotImplementedException();
+            return new Result { SampleId = "123", ResultId = "456" };
         }
     }
 }

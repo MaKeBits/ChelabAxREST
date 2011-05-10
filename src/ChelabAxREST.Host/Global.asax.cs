@@ -10,10 +10,11 @@ namespace Chelab.AxREST.Host
 {
     public class AppHost : AppHostBase
     {
-        public AppHost() : base("Ax ReST Result Entry", typeof(Result).Assembly) { }
+        public AppHost() : base("Ax ReST Result Entry", typeof(SampleService).Assembly) { }
 
         public override void Configure(Container container)
         {
+            container.Register<ISampleRepository>(new SampleRepository());
             container.Register<IResultRepository>(new ResultRepository());
 
             //Register user-defined REST-ful routes         
