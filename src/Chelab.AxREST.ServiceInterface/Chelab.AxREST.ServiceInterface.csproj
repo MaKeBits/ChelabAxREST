@@ -56,6 +56,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ResultService.cs" />
     <Compile Include="SampleService.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -63,9 +64,9 @@
       <Project>{C836D08B-633C-4593-9B81-AF999E72E4F7}</Project>
       <Name>Chelab.AxREST.ServiceModel</Name>
     </ProjectReference>
-    <ProjectReference Include="..\ChelabAxREST.Interfaces\ChelabAxREST.Interfaces.csproj">
+    <ProjectReference Include="..\ChelabAxREST.Interfaces\Chelab.AxREST.Interfaces.csproj">
       <Project>{A07DE9D8-59A4-43DC-90D5-A07D2F1B4F8D}</Project>
-      <Name>ChelabAxREST.Interfaces</Name>
+      <Name>Chelab.AxREST.Interfaces</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

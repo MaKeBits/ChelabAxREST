@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using Chelab.AxREST.ServiceModel;
 
-namespace ChelabAxREST.Interfaces
+namespace Chelab.AxREST.Interfaces
 {
     public interface ISampleRepository
     {

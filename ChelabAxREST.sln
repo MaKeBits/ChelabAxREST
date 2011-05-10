@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChelabAxREST.Interfaces", "src\ChelabAxREST.Interfaces\ChelabAxREST.Interfaces.csproj", "{A07DE9D8-59A4-43DC-90D5-A07D2F1B4F8D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Chelab.AxREST.Interfaces", "src\ChelabAxREST.Interfaces\Chelab.AxREST.Interfaces.csproj", "{A07DE9D8-59A4-43DC-90D5-A07D2F1B4F8D}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Chelab.AxREST.ServiceInterface", "src\Chelab.AxREST.ServiceInterface\Chelab.AxREST.ServiceInterface.csproj", "{0D781FE2-72F0-4320-9604-CBD5700C82A7}"
 EndProject
@@ -9,7 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Chelab.AxREST.Logic", "src\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Chelab.AxREST.ServiceModel", "src\Chelab.AxREST.ServiceModel\Chelab.AxREST.ServiceModel.csproj", "{C836D08B-633C-4593-9B81-AF999E72E4F7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChelabAxREST.Host", "src\ChelabAxREST.Host\ChelabAxREST.Host.csproj", "{A4690282-DCDD-4852-8001-D50DE6351F64}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Chelab.AxREST.Host", "src\ChelabAxREST.Host\Chelab.AxREST.Host.csproj", "{A4690282-DCDD-4852-8001-D50DE6351F64}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

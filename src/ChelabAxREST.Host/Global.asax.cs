@@ -1,18 +1,37 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Security;
-using System.Web.SessionState;
+using Chelab.AxREST.Interfaces;
+using Chelab.AxREST.Logic;
+using Chelab.AxREST.ServiceInterface;
+using Chelab.AxREST.ServiceModel;
+using Funq;
+using ServiceStack.WebHost.Endpoints;
 
-namespace ChelabAxREST.Host
+namespace Chelab.AxREST.Host
 {
+    public class AppHost : AppHostBase
+    {
+        public AppHost() : base("Ax ReST Result Entry", typeof(Result).Assembly) { }
+
+        public override void Configure(Container container)
+        {
+            container.Register<IResultRepository>(new ResultRepository());
+
+            //Register user-defined REST-ful routes         
+            Routes
+              .Add<Result>("/result/{SampleId}")
+              .Add<Result>("/result/{SampleId}/{ResultId}")
+              .Add<Result>("/result/{SampleId}/{ResultId}{RsltRepetition}")
+              .Add<Sample>("/sample")
+              .Add<Sample>("/sample/{SampleId}");
+        }
+    }
+
     public class Global : System.Web.HttpApplication
     {
 
         void Application_Start(object sender, EventArgs e)
         {
-            // Code that runs on application startup
+            new AppHost().Init();
 
         }
 

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using Chelab.AxREST.ServiceModel;
 using ServiceStack.ServiceInterface;
-using ChelabAxREST.Interfaces;
+using Chelab.AxREST.Interfaces;
 using ServiceStack.Common;
 
 namespace Chelab.AxREST.ServiceInterface
@@ -15,13 +15,13 @@ namespace Chelab.AxREST.ServiceInterface
 
         public override object OnGet(Result request)
         {
-            if (!request.ResultRecId.IsNullOrEmpty())
+            if (!request.ResultId.IsNullOrEmpty())
             {
-                var res = ResultRepository.getResult(request.ResultRecId);
+                var res = ResultRepository.getResult(request.SampleId, request.ResultId, request.RsltRepetition);
                 return new ResultResponse { Result = res };
             }
 
-            var response = new ResultResponse { Results = ResultRepository.getAllResults(request.SampleRecId) };
+            var response = new ResultResponse { Results = ResultRepository.getAllResults(request.SampleId) };
             return response;
         }
 

@@ -3,15 +3,22 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using ServiceStack.ServiceInterface.ServiceModel;
+using System.ComponentModel;
 
 namespace Chelab.AxREST.ServiceModel
 {
     public class Result
     {
-        public string SampleId { get; set; }
-        public string ResultId { get; set; }
-        public string SampleRecId { get; set; }
-        public string ResultRecId { get; set; }
+        private Int16 _RsltRepetition = 1;
+
+        public String SampleId { get; set; }
+        public String ResultId { get; set; }
+        [DefaultValue(true)]
+        public Int16 RsltRepetition
+        {
+            get { return _RsltRepetition; }
+            set { _RsltRepetition = value; }
+        }
     }
 
     public class ResultResponse : IHasResponseStatus

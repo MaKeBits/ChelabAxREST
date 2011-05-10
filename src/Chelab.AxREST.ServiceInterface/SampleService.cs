@@ -1,6 +1,6 @@
 ﻿using Chelab.AxREST.ServiceModel;
 using ServiceStack.ServiceInterface;
-using ChelabAxREST.Interfaces;
+using Chelab.AxREST.Interfaces;
 using ServiceStack.Common;
 
 namespace Chelab.AxREST.ServiceInterface
@@ -11,9 +11,9 @@ namespace Chelab.AxREST.ServiceInterface
 
         public override object OnGet(Sample request)
         {
-            if (!request.RecId.IsNullOrEmpty())
+            if (!request.SampleId.IsNullOrEmpty())
             {
-                var address = SampleRepository.GetSample(request.RecId);
+                var address = SampleRepository.GetSample(request.SampleId);
                 return new SampleResponse { Sample = address };
             }
 

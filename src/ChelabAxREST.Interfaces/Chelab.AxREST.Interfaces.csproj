@@ -8,7 +8,7 @@
     <ProjectGuid>{A07DE9D8-59A4-43DC-90D5-A07D2F1B4F8D}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ChelabAxREST.Interfaces</RootNamespace>
+    <RootNamespace>Chelab.AxREST.Interfaces</RootNamespace>
     <AssemblyName>ChelabAxREST.Interfaces</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
@@ -40,6 +40,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IResultRepository.cs" />
     <Compile Include="ISampleRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

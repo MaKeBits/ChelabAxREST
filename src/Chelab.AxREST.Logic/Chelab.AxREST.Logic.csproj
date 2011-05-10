@@ -41,7 +41,18 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ResultRepository.cs" />
     <Compile Include="SampleRepository.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Chelab.AxREST.ServiceModel\Chelab.AxREST.ServiceModel.csproj">
+      <Project>{C836D08B-633C-4593-9B81-AF999E72E4F7}</Project>
+      <Name>Chelab.AxREST.ServiceModel</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ChelabAxREST.Interfaces\Chelab.AxREST.Interfaces.csproj">
+      <Project>{A07DE9D8-59A4-43DC-90D5-A07D2F1B4F8D}</Project>
+      <Name>Chelab.AxREST.Interfaces</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -7,14 +7,14 @@ using Chelab.AxREST.ServiceModel;
 
 namespace Chelab.AxREST.Logic
 {
-    public class SampleRepository : ISampleRepository
+    public class ResultRepository : IResultRepository
     {
-        public Sample GetSample(string recId)
+        public List<Result> getAllResults(string SampleId)
         {
             throw new NotImplementedException();
         }
 
-        public List<Sample> GetAllSamples()
+        public Result getResult(string SampleId, string ResultId, int RsltRepetition)
         {
             throw new NotImplementedException();
         }
