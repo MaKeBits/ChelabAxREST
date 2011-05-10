@@ -1,1 +1,1 @@
-﻿<%@ Application Codebehind="Global.asax.cs" Inherits="ChelabAxREST.Host.Global" Language="C#" %>
+﻿<%@ Application Codebehind="Global.asax.cs" Inherits="Chelab.AxREST.Host.Global" Language="C#" %>

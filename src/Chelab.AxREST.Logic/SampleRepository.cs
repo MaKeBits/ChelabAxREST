@@ -11,11 +11,17 @@ namespace Chelab.AxREST.Logic
     {
         public Sample GetSample(string recId)
         {
+            return new Sample { SampleId = "12345" };
             throw new NotImplementedException();
         }
 
         public List<Sample> GetAllSamples()
         {
+            return new List<Sample> 
+            { 
+                new Sample { SampleId = "12345" }, 
+                new Sample {SampleId = "67890" }
+            };
             throw new NotImplementedException();
         }
     }

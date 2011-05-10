@@ -25,12 +25,12 @@ namespace Chelab.AxREST.ServiceInterface
             return response;
         }
 
-        public override object OnPost(Result address)
+        public override object OnPost(Result request)
         {
             return new ResultResponse();
         }
 
-        public override object OnPut(Result address)
+        public override object OnPut(Result request)
         {
             //Enter a result for the sample measurement and write it into AX
             //some code here...

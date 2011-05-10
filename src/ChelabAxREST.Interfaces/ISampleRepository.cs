@@ -8,7 +8,7 @@ namespace Chelab.AxREST.Interfaces
 {
     public interface ISampleRepository
     {
-        Sample GetSample(string recId);
+        Sample GetSample(string SampleId);
 
         List<Sample> GetAllSamples();
     }
