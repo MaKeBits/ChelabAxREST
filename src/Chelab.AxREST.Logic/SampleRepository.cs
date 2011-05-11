@@ -4,13 +4,15 @@ using System.Linq;
 using System.Text;
 using Chelab.AxREST.Interfaces;
 using Chelab.AxREST.ServiceModel;
+using BC.NET;
+using Microsoft.Dynamics.BusinessConnectorNet;
 
 namespace Chelab.AxREST.Logic
 {
     public class SampleRepository : ISampleRepository
     {
         public Sample GetSample(string recId)
-        {
+        {          
             return new Sample { SampleId = "12345" };
         }
 
