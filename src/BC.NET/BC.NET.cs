@@ -40,7 +40,7 @@ namespace BC.NET
         #region Private
         private Axapta _Axapta = new Axapta();
         private IIdentity _userIdentity = null;
-        private AxConfig _AxConfig = new AxConfig(new ConfigurationResourceManager());
+        private AxConfig _AxConfig = new AxConfig(new ConfigurationResourceManager());        
         #endregion
 
         /// <summary>
@@ -56,7 +56,7 @@ namespace BC.NET
             {
                 this.AxLoginAs();
                 AxaptaObject axObj = _Axapta.CreateAxaptaObject(className);
-                string ret = (string)this.callMethod(className, methodName, paramList);
+                string ret = (string)this.CallAxMethod(className, methodName, paramList);
 
                 Byte[] buf = Encoding.UTF8.GetBytes(ret);
 
@@ -100,10 +100,9 @@ namespace BC.NET
 
             try
             {
-                //this.AxLogin();
                 this.AxLoginAs();
                 AxaptaObject axObj = _Axapta.CreateAxaptaObject(className);
-                string ret = (string)this.callMethod(className, methodName, paramList);
+                string ret = (string)this.CallAxMethod(className, methodName, paramList);
 
                 //convert string into XML document
                 xmlDoc.LoadXml(ret);
@@ -153,9 +152,13 @@ namespace BC.NET
         public Object CallAxMethod(string className, string methodName, params object[] paramList)
         {
             try
-            {
-                this.AxLoginAs();
-                return this.callMethod(className, methodName, paramList);
+            {                
+                using (var axObj = _Axapta.CreateAxaptaObject(className))
+                {                   
+                    return (paramList != null) ?
+                        axObj.Call(methodName, paramList) :
+                        axObj.Call(methodName);
+                }
             }
             catch (Microsoft.Dynamics.AxaptaException ex)
             {
@@ -169,37 +172,12 @@ namespace BC.NET
                 SoapException se = new SoapException(ex.Message, SoapException.ClientFaultCode, ex.InnerException);
                 throw se;
             }
-            finally
-            {
-                this.AxLogoff();
-            }
-        }
-
-        /// <summary>
-        /// Calls an AX method
-        /// </summary>
-        /// <param name="className">Class name</param>
-        /// <param name="methodName">Method name</param>
-        /// <param name="paramList">Parameters list</param>
-        /// <returns></returns>
-        private Object callMethod(string className, string methodName, params object[] paramList)
-        {
-            AxaptaObject axObj = _Axapta.CreateAxaptaObject(className);
-            Object ret = null;
-            if (paramList != null)
-                ret = axObj.Call(methodName, paramList);
-            else
-                ret = axObj.Call(methodName);
-
-            axObj.Dispose();
-
-            return ret;
         }
 
         /// <summary>
         /// Login to AX using current User Identity
         /// </summary>
-        private void AxLogin()
+        public void AxLogin()
         {
             string[] array = _userIdentity.Name.Split(new char[] { '\\' });
             _Axapta.LogonAs(array[1], array[0], null, _AxConfig.Ax_Company, "", "", _AxConfig.Ax_Configuration);
@@ -213,12 +191,26 @@ namespace BC.NET
         /// <summary>
         /// Login to AX using credentials specified in the web.config
         /// </summary>
-        private void AxLoginAs()
+        public void AxLoginAs()
         {
             NetworkCredential nc = new NetworkCredential(_AxConfig.Ax_ProxyUserName, _AxConfig.Ax_ProxyUserPassword, _AxConfig.Ax_ProxyUserDomain);
 
-            _Axapta.LogonAs(_AxConfig.Ax_UserName, _AxConfig.Ax_UserDomain, nc, _AxConfig.Ax_Company, "", "", _AxConfig.Ax_Configuration);
-
+            try
+            {
+                _Axapta.LogonAs(_AxConfig.Ax_UserName, _AxConfig.Ax_UserDomain, nc, _AxConfig.Ax_Company, "", "", _AxConfig.Ax_Configuration);
+            }
+            catch (Microsoft.Dynamics.AxaptaException ex)
+            {
+                this.WriteErrorToEventLog(ex);
+                SoapException se = new SoapException(ex.Message, SoapException.ServerFaultCode, ex.InnerException);
+                throw se;
+            }
+            catch (Exception ex)
+            {
+                this.WriteErrorToEventLog(ex);
+                SoapException se = new SoapException(ex.Message, SoapException.ClientFaultCode, ex.InnerException);
+                throw se;
+            }
 #if DEBUG
             _Axapta.Refresh();
 #endif
@@ -244,9 +236,71 @@ namespace BC.NET
         /// <summary>
         /// Closes AX connection
         /// </summary>
-        private void AxLogoff()
+        public void AxLogoff()
         {
             _Axapta.Logoff();
+            _Axapta.Dispose();
         }
     }
+
+
+    /// <summary>
+    /// Thread safe class by implementing the 'Double-Check Locking' idiom.
+    /// </summary>
+    //public sealed class AXConnectionSingelton : IDisposable
+    //{
+    //    private static volatile AXConnectionSingelton instance;
+    //    private static object syncRoot = new Object();
+    //    private Axapta ax;
+    //    private bool disposed = false;
+
+    //    private AXConnectionSingelton()
+    //    {
+    //        ax = new Axapta();
+    //    }
+
+    //    public static AXConnectionSingelton Instance
+    //    {
+    //        get
+    //        {
+    //            if (instance == null) // Check
+    //            {
+    //                lock (syncRoot) // serialize
+    //                {
+    //                    if (instance == null) // Double-check
+    //                        instance = new AXConnectionSingelton();
+    //                }
+    //            }
+
+    //            return instance;
+    //        }
+    //    }
+
+    //    public Axapta connection()
+    //    {
+    //        return ax;
+    //    }
+
+    //    public void Dispose()
+    //    {
+    //        Dispose(true);
+    //    }
+
+    //    private void Dispose(bool disposing)
+    //    {
+    //        // Check to see if Dispose has already been called.
+    //        if (!this.disposed)
+    //        {
+    //            // If disposing equals true, dispose all managed
+    //            // and unmanaged resources.
+    //            if (disposing)
+    //            {
+    //                // Dispose managed resources.
+    //                ax.Dispose();
+    //            }
+    //            instance = null;
+    //            disposed = true;
+    //        }
+    //    }
+    //}
 }

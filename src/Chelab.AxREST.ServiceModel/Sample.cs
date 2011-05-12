@@ -6,6 +6,8 @@ namespace Chelab.AxREST.ServiceModel
     public class Sample
     {
         public string SampleId { get; set; }
+        public int CompletionLevel { get; set; }
+        public int ApprovalLevel { get; set; }
     }
 
     public class SampleResponse : IHasResponseStatus

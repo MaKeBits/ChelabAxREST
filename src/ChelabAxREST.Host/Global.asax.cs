@@ -21,7 +21,7 @@ namespace Chelab.AxREST.Host
             Routes
               .Add<Result>("/result/{SampleId}")
               .Add<Result>("/result/{SampleId}/{ResultId}")
-              .Add<Result>("/result/{SampleId}/{ResultId}{RsltRepetition}")
+              .Add<Result>("/result/{SampleId}/{ResultId}/{RsltRepetition}")
               .Add<Sample>("/sample")
               .Add<Sample>("/sample/{SampleId}");
         }

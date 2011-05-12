@@ -21,7 +21,7 @@ namespace Chelab.AxREST.ServiceInterface
                 return new ResultResponse { Result = res };
             }
 
-            var response = new ResultResponse { Results = ResultRepository.getAllResults(request.SampleId) };
+            var response = new ResultResponse { Results = ResultRepository.getResults(request.SampleId) };
             return response;
         }
 
